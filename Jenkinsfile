@@ -11,6 +11,13 @@ pipeline{
                 echo "Run unit tests to ensure the code functions as expected and run integration tests to ensure the different components of the application work together as expected. Tool: Selenium."
             }
             post {
+                emailext(
+    to: "siweiluo086@gmail.com",
+    subject: "Build Status: ${currentBuild.currentResult}",
+    body: "The build status is: ${currentBuild.currentResult}. Please find the details attached.",
+    attachmentsPattern: '**/*.log'
+)
+
                 success {
                     echo "Tests completed successfully!"
                     emailext( to: "siweiluo086@gmail.com",
