@@ -18,8 +18,8 @@ pipeline{
                         body: "Unit and integration tests passed.",
                         //attachLog: true,
                         //attachmentsPattern: '**/*'
-                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
-
+                    //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                    emailext attachLog: true, attachmentsPattern: '**/*.log'
                 }
                 failure {
                     echo "Tests failed."
