@@ -16,7 +16,7 @@ pipeline{
     to: "siweiluo086@gmail.com",
     subject: "Build Status: ${currentBuild.currentResult}",
     body: "The build status is: ${currentBuild.currentResult}. Please find the details attached.",
-    attachmentsPattern: '**/*.log'
+    //attachmentsPattern: '**/*.log'
 )}
 
                 success {
