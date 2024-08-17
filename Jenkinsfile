@@ -44,21 +44,21 @@ pipeline{
             post {
                 success {
                     echo "Secirity Scan successfully!"
-                    mail to: "siweiluo086@gmail.com",
+                    emailext( to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: SUCCESS",
                         body: "Secirity Scan passed.",
-                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                    //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
                         //attachLog: true,
-                        //attachmentsPattern: '**/*'
+                        attachmentsPattern: '**/*.log')
                 }
                 failure {
                     echo "Secirity Scan failed."
-                    mail to: "siweiluo086@gmail.com",
+                    emailext( to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: FAILURE",
                         body: "Secirity Scan failed.",
-                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                    //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
                         //attachLog: true,
-                        //attachmentsPattern: '**/*'
+                        attachmentsPattern: '**/*.log')
                 }
             }
         }
