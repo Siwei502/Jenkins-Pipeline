@@ -12,13 +12,13 @@ pipeline{
             }
             post {
                 always{
-                    mail to: "siweiluo086@gmail.com",
+                    mail to: "siweiluo086@gmail.com"
                 //emailext attachmentsPattern: '**/*.log', body: "The build status is: ${currentBuild.currentResult}. Please find the details attached.",
                     
                    // subject: "Build Status: ${currentBuild.currentResult}", to: "siweiluo086@gmail.com"
                     
                 //attachmentsPattern: '**/*.log'
-            }}
+            }
 
                 success {
                     echo "Tests completed successfully!"
