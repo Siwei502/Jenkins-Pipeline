@@ -13,5 +13,20 @@ pipeline{
                 }
             }
         }
+        stage("Test){
+              steps{
+                  echo "Testing..."
+              }
+        }
+        stage("Deploy"){
+            steps{
+                echo "Deploying..."
+            }
+        }
+        stage("Complete"){
+            steps{
+                echo "Completed."
+            }
+        }
     }
 }
