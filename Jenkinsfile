@@ -17,8 +17,8 @@ pipeline{
                     
                    // subject: "Build Status: ${currentBuild.currentResult}", to: "siweiluo086@gmail.com"
                     
-    //attachmentsPattern: '**/*.log'
-}
+                //attachmentsPattern: '**/*.log'
+            }}
 
                 success {
                     echo "Tests completed successfully!"
