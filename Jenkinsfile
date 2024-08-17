@@ -13,22 +13,22 @@ pipeline{
             post {
                 success {
                     echo "Tests completed successfully!"
-                    mail to: "siweiluo086@gmail.com",
+                    emailext( to: "siweiluo086@gmail.com",
                         subject: "Test Status: SUCCESS",
                         body: "Unit and integration tests passed.",
                         //attachLog: true,
-                        //attachmentsPattern: '**/*'
+                        attachmentsPattern: '**/*.log')
                     //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
-                    emailext attachLog: true, attachmentsPattern: '**/*.log'
+                    //emailext attachLog: true, attachmentsPattern: '**/*.log'
                 }
                 failure {
                     echo "Tests failed."
-                        mail to: "siweiluo086@gmail.com",
+                        emailext( to: "siweiluo086@gmail.com",
                         subject: "Test Status: FAILURE",
                         body: "Unit and integration tests failed.",
-                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                    //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
                         //attachLog: true,
-                        //attachmentsPattern: '**/*'
+                        attachmentsPattern: '**/*.log')
                 }
             }
         }
