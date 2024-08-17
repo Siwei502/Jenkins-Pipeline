@@ -16,7 +16,6 @@ pipeline{
                     mail to: "siweiluo086@gmail.com",
                         subject: "Test Status: SUCCESS",
                         body: "Unit and integration tests passed.",
-                        attachLog: true
                     archiveArtifacts artifacts: 'C:\\Users\\jenkinslocaluser\\test\\', allowEmptyArchive: true
 
                 }
@@ -25,7 +24,6 @@ pipeline{
                         mail to: "siweiluo086@gmail.com",
                         subject: "Test Status: FAILURE",
                         body: "Unit and integration tests failed.",
-                        attachLog: true
                     archiveArtifacts artifacts: 'C:\\Users\\jenkinslocaluser\\test\\', allowEmptyArchive: true
 
                 }
@@ -46,7 +44,6 @@ pipeline{
                     mail to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: SUCCESS",
                         body: "Secirity Scan passed.",
-                        attachLog: true
                     archiveArtifacts artifacts: 'C:\\Users\\jenkinslocaluser\\security-reports\\', allowEmptyArchive: true
                 }
                 failure {
@@ -54,7 +51,6 @@ pipeline{
                     mail to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: FAILURE",
                         body: "Secirity Scan failed.",
-                        attachLog: true
                     archiveArtifacts artifacts: 'C:\\Users\\jenkinslocaluser\\security-reports\\', allowEmptyArchive: true
 
                 }
