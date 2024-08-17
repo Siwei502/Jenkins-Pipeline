@@ -16,9 +16,9 @@ pipeline{
                     mail to: "siweiluo086@gmail.com",
                         subject: "Test Status: SUCCESS",
                         body: "Unit and integration tests passed.",
-                        attachLog: true,
-                        attachmentsPattern: '**/*'
-                    //archiveArtifacts artifacts: '**/*', allowEmptyArchive: true
+                        //attachLog: true,
+                        //attachmentsPattern: '**/*'
+                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
 
                 }
                 failure {
@@ -26,9 +26,9 @@ pipeline{
                         mail to: "siweiluo086@gmail.com",
                         subject: "Test Status: FAILURE",
                         body: "Unit and integration tests failed.",
-                    //archiveArtifacts artifacts: '**/*', allowEmptyArchive: true
-                        attachLog: true,
-                        attachmentsPattern: '**/*'
+                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                        //attachLog: true,
+                        //attachmentsPattern: '**/*'
                 }
             }
         }
@@ -47,18 +47,18 @@ pipeline{
                     mail to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: SUCCESS",
                         body: "Secirity Scan passed.",
-                    //archiveArtifacts artifacts: '**/*', allowEmptyArchive: true
-                        attachLog: true,
-                        attachmentsPattern: '**/*'
+                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                        //attachLog: true,
+                        //attachmentsPattern: '**/*'
                 }
                 failure {
                     echo "Secirity Scan failed."
                     mail to: "siweiluo086@gmail.com",
                         subject: "Secirity Scan Status: FAILURE",
                         body: "Secirity Scan failed.",
-                    //archiveArtifacts artifacts: '**/*', allowEmptyArchive: true
-                        attachLog: true,
-                        attachmentsPattern: '**/*'
+                    archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
+                        //attachLog: true,
+                        //attachmentsPattern: '**/*'
                 }
             }
         }
