@@ -13,9 +13,10 @@ pipeline{
             post {
                 always{
                     script{                 
-                        emailext subject: "${currentBuild.currentResult}",
+                        emailext subject: "Test Status: ${currentBuild.currentResult}",
                             to: 'siweiluo086@gmail.com', 
-                            body: "${currentBuild.currentResult}"
+                            body: "The current build result is: ${currentBuild.currentResult}. \n\nDetails:\n${currentBuild.fullDisplayName}\n${currentBuild.absoluteUrl}",
+                            attachmentsPattern: '**/test.log'
                     }                   
                 }
 
@@ -45,11 +46,19 @@ pipeline{
                 echo "- integrate a code analysis tool to analyse the code and ensure it meets industry standards. Tool: GitLab."
             }
         }
-        stage("Secirity Scan"){
+        stage("Security Scan"){
             steps{
                 echo "Perform a security scan on the code using a tool to identify any vulnerabilities. Tool: Snyk."
             }
             post {
+                 always{
+                    script{                 
+                        emailext subject: "Security Scan Status: ${currentBuild.currentResult}",
+                            to: 'siweiluo086@gmail.com', 
+                            body: "The current build result is: ${currentBuild.currentResult}. \n\nDetails:\n${currentBuild.fullDisplayName}\n${currentBuild.absoluteUrl}",
+                            attachmentsPattern: '**/security.log'
+                    }                   
+                }
                 success {
                     echo "Secirity Scan successfully!"
                     emailext( to: "siweiluo086@gmail.com",
