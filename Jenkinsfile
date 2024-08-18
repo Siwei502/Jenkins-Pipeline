@@ -12,13 +12,13 @@ pipeline{
             }
             post {
                 always{
-                script{
-                    def mailRecipients = 'siweiluo086@gmail.com'
-                    emailext subject: "${currentBuild.currentResult}",
-                        to: "${mailRecipients}", 
-                        body: "${currentBuild.currentResult}"
-                       // attachmentsPattern: '**/*.log'
-                }                   
+                    script{
+                        def mailRecipients = 'siweiluo086@gmail.com'
+                        emailext subject: "${currentBuild.currentResult}",
+                            to: "${mailRecipients}", 
+                            body: "${currentBuild.currentResult}"
+                           // attachmentsPattern: '**/*.log'
+                    }                   
 
                 }
 
