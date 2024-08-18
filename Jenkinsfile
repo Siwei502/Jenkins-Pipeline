@@ -13,8 +13,12 @@ pipeline{
             post {
                 always{
                   //  mail to: "siweiluo086@gmail.com", subject: "Build Status: ${currentBuild.currentResult}", body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
-  script{              emailext (subject: "Build Status: ${currentBuild.currentResult}", to: "siweiluo086@gmail.com", body: "The build status is: ${currentBuild.currentResult}. Please find the details attached.")
-        }                   
+                script{
+                    def mailRecipients = 'siweiluo086@gmail.com'
+                    emailext subject: "Build Status: ${currentBuild.currentResult}",
+                        to: "${mailRecipients}", 
+                        body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
+                }                   
 
             }
 
