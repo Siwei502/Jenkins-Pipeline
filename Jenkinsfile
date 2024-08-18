@@ -15,9 +15,9 @@ pipeline{
                   //  mail to: "siweiluo086@gmail.com", subject: "Build Status: ${currentBuild.currentResult}", body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
                 script{
                     def mailRecipients = 'siweiluo086@gmail.com'
-                    emailext subject: "Build Status: ${currentBuild.currentResult}",
+                    emailext subject: "${currentBuild.currentResult}",
                         to: "${mailRecipients}", 
-                        body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
+                        body: "${currentBuild.currentResult}"
                 }                   
 
             }
