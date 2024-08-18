@@ -11,16 +11,16 @@ pipeline{
                 echo "Run unit tests to ensure the code functions as expected and run integration tests to ensure the different components of the application work together as expected. Tool: Selenium."
             }
             post {
-          /*      always{
-                  //  mail to: "siweiluo086@gmail.com", subject: "Build Status: ${currentBuild.currentResult}", body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
+                always{
                 script{
                     def mailRecipients = 'siweiluo086@gmail.com'
-                    emailext subject: "${currentBuild.currentResult}",
+                    emailext subject: "Build Status: ${currentBuild.currentResult}",
                         to: "${mailRecipients}", 
-                        body: "${currentBuild.currentResult}"
+                        body: "The current build result is: ${currentBuild.currentResult}"
+                        attachmentsPattern: '**/*.log'
                 }                   
 
-            }*/
+                }
 
                 success {
                     echo "Tests completed successfully!"
