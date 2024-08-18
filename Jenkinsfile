@@ -17,7 +17,7 @@ pipeline{
                     emailext subject: "Build Status: ${currentBuild.currentResult}",
                         to: "${mailRecipients}", 
                         body: "The current build result is: ${currentBuild.currentResult}"
-                        attachmentsPattern: '**/*.log'
+                       // attachmentsPattern: '**/*.log'
                 }                   
 
                 }
