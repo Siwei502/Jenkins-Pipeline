@@ -10,7 +10,7 @@ pipeline{
             steps{
                 echo "Run unit tests to ensure the code functions as expected and run integration tests to ensure the different components of the application work together as expected. Tool: Selenium."
             }
-            post {
+ /*           post {
                 always{
                   //  mail to: "siweiluo086@gmail.com", subject: "Build Status: ${currentBuild.currentResult}", body: "The build status is: ${currentBuild.currentResult}. Please find the details attached."
                 script{
@@ -20,7 +20,7 @@ pipeline{
                         body: "${currentBuild.currentResult}"
                 }                   
 
-            }
+            }*/
 
                 success {
                     echo "Tests completed successfully!"
