@@ -14,7 +14,7 @@ pipeline{
                 always{
                     script{                 
                         emailext subject: "${currentBuild.currentResult}",
-                            to: "$DEFAULT_RECIPIENTS", 
+                            to: 'siweiluo086@gmail.com', 
                             body: "${currentBuild.currentResult}"
                     }                   
                 }
