@@ -12,12 +12,10 @@ pipeline{
             }
             post {
                 always{
-                    script{
-                        def mailRecipients = 'siweiluo086@gmail.com'
+                    script{                 
                         emailext subject: "${currentBuild.currentResult}",
-                            to: "${mailRecipients}", 
+                            to: "$DEFAULT_RECIPIENTS", 
                             body: "${currentBuild.currentResult}"
-                          
                     }                   
                 }
 
