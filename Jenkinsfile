@@ -17,9 +17,8 @@ pipeline{
                         emailext subject: "${currentBuild.currentResult}",
                             to: "${mailRecipients}", 
                             body: "${currentBuild.currentResult}"
-                           // attachmentsPattern: '**/*.log'
+                          
                     }                   
-
                 }
 
                 success {
@@ -40,7 +39,7 @@ pipeline{
                     //archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
                         //attachLog: true,
                         attachmentsPattern: '**/*.log')
-                }
+                } 
             }
         }
         stage("Code Analysis"){
