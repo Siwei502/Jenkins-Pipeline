@@ -14,9 +14,9 @@ pipeline{
                 always{
                 script{
                     def mailRecipients = 'siweiluo086@gmail.com'
-                    emailext subject: "Build Status: ${currentBuild.currentResult}",
+                    emailext subject: "${currentBuild.currentResult}",
                         to: "${mailRecipients}", 
-                        body: "The current build result is: ${currentBuild.currentResult}"
+                        body: "${currentBuild.currentResult}"
                        // attachmentsPattern: '**/*.log'
                 }                   
 
